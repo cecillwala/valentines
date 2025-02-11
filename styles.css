@@ -1,0 +1,77 @@
+body{
+    background-color: #600606;
+    padding: 30px;
+}
+.heart-container{
+    align-self: center; 
+    /* border: 1px #f55e5e solid; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.cupid{
+    animation: cupid 5s infinite linear;
+}
+.yes{
+    animation: yes 1.2s infinite linear;
+    color: #600606;
+    background-color: #f55e5e;
+    filter: drop-shadow(0 0 0.75rem #f55e5e);
+}
+
+@keyframes yes{
+    0%{
+        filter: drop-shadow(0 0 0.75rem #f55e5e);
+        transform: scale(1);
+    }
+    50%{
+        filter: drop-shadow(0 0 4rem #f55e5e);
+        transform: scale(1.12);
+    }
+    100%{
+        transform: scale(1);
+        filter: drop-shadow(0 0 0.75rem #f55e5e);
+    }
+}
+@keyframes cupid {
+    0%{
+        transform: rotate(0deg) translateY(0);
+    }
+    50%{
+        transform:translateY(30px);
+    }
+    100%{
+        transform: rotate(360deg) translateY(0);
+    }
+}
+.cupid-container{
+    display: flex;
+    /* border: 1px solid #f55e5e; */
+    justify-content: space-around;
+}
+button{
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #f55e5e;
+    color: #f55e5e;
+    background-color: #600606;
+    width:210px;
+    font-size: 25px;
+}
+.container{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.no:hover{
+    cursor: pointer;
+    background-color: #4b0c0c;
+    transition: ease-in-out all 200ms;
+    filter: drop-shadow(0 0 5rem #2e0808);
+}
+
+.yes:hover{
+    cursor: pointer;
+}
