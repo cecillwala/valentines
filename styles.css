@@ -24,7 +24,7 @@ h3{
     font-weight: 400;
     filter: drop-shadow(0 0 1.5em #f55e5e);
     font-style: normal;
-    animation: warning 2s infinite linear;
+    animation: warning 1s infinite linear;
 }
 
 .btns-container{
@@ -40,7 +40,7 @@ h3{
         filter: drop-shadow(0 0 7.5rem #f55e5e);
     }
     50%{
-        font-size: 2vw;
+        font-size: 1.2vw;
         filter: drop-shadow(0 0 15rem #f55e5e);
     }
     100%{
