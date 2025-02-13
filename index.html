@@ -2,22 +2,99 @@
 <html lang="en">
     <head>
         <title>Valentines</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Luckiest+Guy&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
-            <div class="cupid-container">
-                <img class="cupid" width="130px" src="src/cupid-logo.png">
-                <img  width="130px" src="src/hanging.png">
-                <img  width="130px" src="src/hanging.png">
-                <img class="cupid" width="130px" src="src/cupid-logo.png">            
+        <div id="container">
+            <div id="page1" class="container">
+                <div class="cupid-container">
+                    <img class="cupid1" width="130px" src="src/cupid-logo.png">
+                    <img  width="130px" src="src/hanging.png">
+                    <img  width="130px" src="src/bouquet.png" class="bouquet">
+                    <img class="cupid2" width="130px" src="src/cupid-logo.png">            
+                </div>
+                <div class="heart-container">
+                    <button class="yes" id="yes">Yes 🥳</button>
+                        <img src="src/background.png" class="heart">
+                    <button class="no" id="no" onmouseover="change_psn()">No 😐</button>
+                </div>
+                <h2 class="warning">WARNING:SAYING YES MAY CAUSE TEMPORARY NAUSEA(the good kind😎)</h2>
             </div>
-            <audio src="src/heavens-choir.mp3" autoplay></audio>
-            <div class="heart-container">
-                <button class="yes">Yes</button>
-                    <img src="src/background.png" class="heart" width="400px">
-                <button class="no">No</button>
+            <div id="page2" class="success" width="400px">
+                <h3>LET'S GOOO🥳!!?! I love you so much baby❤️!</h3>
+                <h4>HAPPY VALENTINES⁉️ WE GOT PLANS😝</h4>
+                <div class="success-container">
+                    <img src="src/sipaint.jpg" class="success-img">
+                    <img src="src/mugombero.jpg" class="gif2">
+                    <img src="src/feast.jpg" class="gif1">
+                </div>
+            </div>
+            <div id="page3" class="page3">
+                <h3>Uko sure🥲???</h3>
+                <img class="ant" src="src/ant.jpg">
+                <br>
+                <div class="btns-container">
+                    <button class="yes" onclick="display_page('page1', 'flex')">Take me back😙</button>
+                    <button class="no" onclick="display_page('page4', 'flex')"> Wee iza bois.</button>
+                </div>
+            </div>
+            <div id="page4" class="failed">
+                <img src="src/joebudden.jpg">
+                <img src="src/spongecry.jpg">
             </div>
         </div>
+        <script>
+            display_page("page1", "flex");
+            const yes = document.getElementById("yes");
+            const no = document.getElementById("no");
+            let obj = yes.getBoundingClientRect();
+            console.log(obj);
+            let clicks = 0;
+            no.addEventListener("click", () => {
+                no.innerText = "no😟?";
+                clicks++;
+                if(clicks > 1){
+                    display_page("page3", "block");
+                }
+            });
+
+            yes.addEventListener("click", () => {
+                display_page("page2", "block");
+            })
+
+            function display_page(page, display){
+                const children = document.getElementById('container').children;
+                Array.from(children).forEach(child => {
+                    child.style.display = 'none';
+                })
+                document.getElementById(page).style.display = `${display}`;
+                
+                if(page == "new-entry"){
+                    const d = new Date();
+                    document.getElementById("entry-date").innerHTML = `What happened on ${d.getUTCDate()} ${months[d.getMonth()]}, ${d.getFullYear()}?`;
+                }
+            }
+
+            function random(min, max) {
+                return Math.floor(Math.random() * (max - min) ) + min;
+            }
+
+            function change_psn(){
+                const yes = document.getElementById("yes");
+                const no = document.getElementById("no");
+                let obj = yes.getBoundingClientRect();
+                no.style.right = random(0, 40) + "vw";
+                no.style.top = random(0, 40) + "vh";
+                yes.style.height = ((obj.height / window.innerHeight) * 100) < 20? ((obj.height / window.innerHeight) * 100) + 2 + "vh": 20 + "vh";
+                yes.style.width = ((obj.width / window.innerWidth) * 100) < 50? ((obj.width / window.innerWidth) * 100) + 5 + "vw": 50 + "vw";
+                yes.innerText = ((obj.width / window.innerWidth) * 100) < 50 && ((obj.height / window.innerHeight) * 100) < 20? "Yes 🥳": "C'mon just say yes 🙄";
+                yes.style.borderRadius = parseInt(yes.style.borderRadius.replace("px", "")) + 3 + "px";
+                yes.style.fontSize = parseInt(yes.style.fontSize.replace("px", ""))  + 1.5 + "em";
+                console.log(obj);
+            };
+        </script>
     </body>
 </html>

@@ -1,24 +1,98 @@
 body{
     background-color: #600606;
-    padding: 30px;
+    padding: 10px;
+    color:#f55e5e;
+    font-family: "Luckiest Guy", serif;
+    font-weight: 100;
 }
 .heart-container{
     align-self: center; 
     /* border: 1px #f55e5e solid; */
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 
-.cupid{
-    animation: cupid 5s infinite linear;
+h3{
+    font-size: 7vh;
+}
+.warning{
+    text-align: center;
+    color: #f55e5e;
+    font-family: "Luckiest Guy", serif;
+    font-weight: 400;
+    filter: drop-shadow(0 0 1.5em #f55e5e);
+    font-style: normal;
+    animation: warning 2s infinite linear;
+}
+
+.btns-container{
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    flex-flow: row nowrap;
+}
+
+@keyframes warning{
+    0%{
+        font-size: 1vw;
+        filter: drop-shadow(0 0 7.5rem #f55e5e);
+    }
+    50%{
+        font-size: 2vw;
+        filter: drop-shadow(0 0 15rem #f55e5e);
+    }
+    100%{
+        font-size: 1vw;
+        filter: drop-shadow(0 0 7.5rem #f55e5e);
+    }
+}
+.ant{
+    border-radius: 20px;
+    max-height: 40vh;
+    max-width: 30vw;
+}
+
+#container > div{
+    text-align: center;
+}
+.heart{
+    z-index: -1;
+    /* position: fixed; */
+    /* top: 40%; */
+    max-width: 28%;
+    flex-shrink: 0;
+}
+
+.cupid1{
+    animation: cupid1 2s infinite linear;
+}
+.cupid2{
+    animation: cupid2 2s infinite linear;
+}
+
+.bouquet{
+    animation: bouquet 2s infinite linear;
 }
 .yes{
     animation: yes 1.2s infinite linear;
     color: #600606;
+    padding: auto;
     background-color: #f55e5e;
     filter: drop-shadow(0 0 0.75rem #f55e5e);
+}
+
+@keyframes bouquet{
+    0%{
+        transform: scale(1.12);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.12);
+    }
 }
 
 @keyframes yes{
@@ -35,7 +109,7 @@ body{
         filter: drop-shadow(0 0 0.75rem #f55e5e);
     }
 }
-@keyframes cupid {
+@keyframes cupid1 {
     0%{
         transform: rotate(0deg) translateY(0);
     }
@@ -46,30 +120,99 @@ body{
         transform: rotate(360deg) translateY(0);
     }
 }
+@keyframes cupid2 {
+    0%{
+        transform: rotate(0deg) translateY(30px);
+    }
+    50%{
+        transform:translateY(0);
+    }
+    100%{
+        transform: rotate(360deg) translateY(30px);
+    }
+}
 .cupid-container{
     display: flex;
     /* border: 1px solid #f55e5e; */
     justify-content: space-around;
 }
 button{
-    padding: 30px;
-    border-radius: 15px;
+    padding: 3vh 3vw;
+    border-radius: 3vw;
     border: 1px solid #f55e5e;
     color: #f55e5e;
     background-color: #600606;
-    width:210px;
-    font-size: 25px;
+    max-width:100%;
+    height: auto;
 }
 .container{
+    height: auto;
+    /* border: 1px #424141 solid; */
     display: flex;
+    justify-content: center;
     flex-flow: column wrap;
 }
 
+/* img{
+    border: #ccc 1px solid;
+} */
 .no:hover{
     cursor: pointer;
     background-color: #4b0c0c;
     transition: ease-in-out all 200ms;
     filter: drop-shadow(0 0 5rem #2e0808);
+}
+
+h4{
+    font-size: 5vh;
+}
+
+.success{
+    display: none;
+}
+
+.success-img{
+    max-width: 65vw;
+    max-height: 45vh;
+    border-radius: 2vw;
+    animation: yes 1.2s infinite linear;
+}
+
+.failed{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.gif1, .gif2{
+    position: absolute;
+    top:68vh; right: 80vw;
+    max-width: 60vw;
+    max-height: 30vh;
+    border-radius: 1vw;
+}
+
+.gif2{
+    position: relative;
+    top: -1vh; 
+    left: 20vw;
+}
+
+.success-container{
+    display: flex;
+    justify-content: center;
+}
+
+.failed > img{
+    max-width: 45vw;
+    max-height: 60vh;
+    border-radius: 2vw;
+}
+.no{
+    position: relative;
+    opacity: 80%;
+    /* z-index: -1; */
 }
 
 .yes:hover{
